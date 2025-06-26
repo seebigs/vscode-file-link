@@ -1,0 +1,84 @@
+{
+  "name": "vscode-file-link",
+  "displayName": "File Link",
+  "description": "Link to other files within your project using relative paths (VS Code Extension)",
+  "version": "0.1.0",
+  "publisher": "seebigs",
+  "engines": {
+    "vscode": "^1.96.2"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "vscode",
+    "file link",
+    "relative path",
+    "file path",
+    "linking files",
+    "file navigation"
+  ],
+  "pricing": "Free",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#6da9ad",
+    "theme": "light"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seebigs/vscode-file-link.git"
+  },
+  "main": "./out/extension.js",
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "package.json",
+    "out",
+    "images"
+  ],
+  "activationEvents": [
+    "onLanguage:dart",
+    "onLanguage:go",
+    "onLanguage:java",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:jsonc",
+    "onLanguage:php",
+    "onLanguage:python",
+    "onLanguage:ruby",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "File Link",
+      "properties": {
+        "fileLink.linkRegex": {
+          "type": "string",
+          "default": "(@file )([^\\s]+)",
+          "description": "Regular expression to match file links. The first capturing group should match the flag name (@file ), the second capturing group should match the file path."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
